@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+        <script th:src="@{/action.js}" src="../static/action.js" type="text/javascript"></script>
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+        <title>Mostrar Player</title>
+    </head>
+    <body>
+        <div id="top">
+        <script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+<!--                        <script th:inline="javascript">
+//                            $("#guardar").click(function(){
+////                var printDoc = new jsPDF();
+////                printDoc.fromHTML($(document), 15,
+////                    15,
+////                    {
+////                'width': 180,'elementHandlers': elementHandler
+////                    });
+////                printDoc.autoPrint();
+////                printDoc.save();
+////                printDoc.output("dataurlnewwindow");
+//                    $("#guarda").text("guarda");
+            });
+        </script>-->
+
+         <p id ="guarda">sds</p>
+
+
+        
+    <button type="button" th:onclick="demo()" id="guardar" class="btn btn-primary" title="Exportar a PDF"> 
+   guardar pdf
+<!--    <img  src="../static/pdf.png" th:src="@{/pdf.png}" height="auto" class="img-responsive center-box"/>-->
+    </button>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/jugador" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span> Lista Jugadores </a>
+                </h3>
+                <h2 th:text="${jugador.nombre}"></h2>
+                <h2><img th:src="${jugador.image}" width="200" /></h2>
+                <dl class="list">
+                    <dt>Pase</dt>
+                    <dd th:text="${jugador.pase}"></dd>
+                    <dt>Tiro</dt>
+                    <dd th:text="${jugador.tiro}"></dd>
+                    <dt>Velocidad</dt>
+                    <dd th:text="${jugador.velocidad}"></dd>
+                </dl>
+        
+                
+<!--                <form action="/delete">
+                    <input type="hidden" name="id" th:value="${velocidad.id}" />
+                    <h2><input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?');" />
+                        <a th:href="@{'/edit/' + ${velocidad.id}}" class="btn btn-warning">Edit</a></h2>
+                </form>-->
+            </div>            
+        </div>
+        </div>
+    </body>
+</html>

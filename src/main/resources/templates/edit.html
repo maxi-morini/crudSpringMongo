@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+        <title>Editar Jugador</title>
+    </head>
+    <body>
+        <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h3>
+                    <a href="/jugador" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Player</a>
+                </h3>
+                <h2>Editar Jugador</h2>
+                <form action="/update">
+                    <div class="form-group">
+                        <label for="email">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre" th:value="${jugador.nombre}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Pase</label>
+                        <textarea class="form-control" name="pase" cols="60" rows="3" th:text="${jugador.pase}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Tiro</label>
+                        <input type="number" class="form-control" name="tiro" th:value="${jugador.tiro}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Velocidad</label>
+                        <input type="number" class="form-control" name="velocidad" th:value="${jugador.velocidad}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Jugador Image URL:</label>
+                        <input type="url" class="form-control" name="image" th:value="${jugador.image}" />
+                    </div>
+                    <input type="hidden" name="id" th:value="${jugador.id}" />
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
